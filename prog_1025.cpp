@@ -1,7 +1,8 @@
-//1025 : LCM
-//ST: 11.10 22/4/2563 ED: 14.59 22/4/2563
-//O(n log n)
-//Rujroot
+/*  1025 : LCM
+    ST: 11.10 22/4/2563 ED: 14.59 22/4/2563
+    O(n log n)
+    Rujroot                                 */
+
 #include <bits/stdc++.h>
 using namespace std;
 long long int number[50010],ans;
@@ -19,6 +20,11 @@ int main()
     printf("%lld",ans);
      return 0;
 }
+
+
+
+
+//---------<Comment>------//
 //int End = number[i];
     /*for(int i=0;i<n;++i){
         bool Have = false;
