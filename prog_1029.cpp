@@ -42,9 +42,6 @@ int main()
     for(auto x:s){
         v.push_back(x);
     }
-    /*for(int i=0;i<v.size();++i){
-        printf("%d ",v[i])
-    }*/
     for(long long int i=0;i<Q;++i){
         scanf("%lld",&Find);
         printf("%lld\n",BinS(v,0,v.size()-1,Find));
