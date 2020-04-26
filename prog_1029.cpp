@@ -46,7 +46,6 @@ int main()
         scanf("%lld",&Find);
         printf("%lld\n",BinS(v,0,v.size()-1,Find));
     }
-
     return 0;
 }
 
