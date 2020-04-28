@@ -1,6 +1,6 @@
 /*  1035 : Prime Palindrome
     ST : 15.02 28/4/63 ED : 15.48 28/4/63
-    o(n*sqrt(n))
+    o(n^2 + sqrt(n))
     Rujroot
 */
 #include <bits/stdc++.h>
