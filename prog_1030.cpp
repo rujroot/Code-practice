@@ -8,12 +8,12 @@ using namespace std;
 int n,P,Q,num,Buy;
 double Tmp;
 vector<pair<double,int>> Rice;
-double A(){
+double Find(){
     Tmp += Rice.back().first*Rice.back().second;
     Buy -= Rice.back().second;
     Rice.pop_back();
     if(Rice.back().second < Buy){
-        return A();
+        return Find();
     }
     return Tmp + Rice.back().first*Buy;
 }
@@ -36,7 +36,7 @@ int main()
             Rice.pop_back();
         }else{
             Tmp = 0;
-            printf("%.3f\n",A());
+            printf("%.3f\n",Find());
             Rice.back().second -= Buy;
         }
     }
