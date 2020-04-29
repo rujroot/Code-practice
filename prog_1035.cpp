@@ -1,18 +1,18 @@
 /*  1035 : Prime Palindrome
     ST : 15.02 28/4/63 ED : 15.48 28/4/63
-    o(n*sqrt(n))
+    o(n^1.5)
     Rujroot
 */
 #include <bits/stdc++.h>
 using namespace std;
 int n;
 vector<int> Num;
-void makestring(int num){
+void makeNum(int num){
     if(num < 10){
         Num.push_back(num % 10);
     }else{
         Num.push_back(num % 10);
-        makestring(num/10);
+        makeNum(num/10);
     }
 
 }
@@ -33,7 +33,7 @@ int main()
         if(f(i)){
             bool have = true;
             Num.clear();
-            makestring(i);
+            makeNum(i);
             for(int i=0;i<Num.size()/2;++i){
                 if(Num[i] != Num[Num.size()-1-i]){
                     have = false;
