@@ -1,6 +1,6 @@
 /*  1030 : Rice
     ST : 11.40 26/4/63 ED : 17.37 26/4/63
-    O(n+Q) ???
+    O(nlogn + n + num) 
     Rujroot
 */
 #include <bits/stdc++.h>
