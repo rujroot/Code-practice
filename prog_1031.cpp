@@ -1,6 +1,6 @@
 /*  1031 : Tower
     ST : 13.02 27/4/2563 ED : 23.50 5/5/2563
-    O(n + i);
+    O(n);
     Rujroot
 */
 #include <stdio.h>
