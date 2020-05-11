@@ -1,6 +1,6 @@
 /*  1056 : Hands
     ST : 17.43 11/5/63 ED : 18.23 11/5/63
-    O(n)
+    O(n log n)
     Rujroot
 */
 #include <bits/stdc++.h>
