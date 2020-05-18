@@ -1,6 +1,6 @@
 /*  1064 : Cromartie School
     ST : 21.12 17/5/63 ED : 22.43 18/5/63
-    O(n^5) ??
+    O(n^4)
     Rujroot
 */
 #include <bits/stdc++.h>
