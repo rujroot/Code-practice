@@ -51,17 +51,10 @@ int main()
     }
    if(v.size() == 1){
         printf("%d %d %d\n%d %d %d",v[0].first.first+1,v[0].first.second+1,v[0].second,v[0].first.first+1,v[0].first.second+1,v[0].second);
-    }else if(v.size() != 2){
-        for(int i=1;i<v.size();++i){
-             printf("%d %d %d\n%d %d %d",v[0].first.first+1,v[0].first.second+1,v[0].second,v[v.size()-1].first.first+1,v[v.size()-1].first.second+1,v[v.size()-1].second);
-                return 0;
-        }
-    }else{
-        for(int i=0;i<v.size();++i){
-            printf("%d %d %d\n",v[i].first.first+1,v[i].first.second+1,v[i].second);
-        }
-    }
+        return 0;
+   }
 
+    printf("%d %d %d\n%d %d %d",v[0].first.first+1,v[0].first.second+1,v[0].second,v[v.size()-1].first.first+1,v[v.size()-1].first.second+1,v[v.size()-1].second);
     return 0;
 }
 
