@@ -1,6 +1,6 @@
 /*  1072 : number
     ST : 14.50 31/5/63 ED : 17.05 31/5/63
-    O(n)
+    O(m+n)
     rujrooot
 */
 #include <bits/stdc++.h>
