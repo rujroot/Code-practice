@@ -1,53 +1,111 @@
-/*  1077 : Key
-    ST : 9.53 1/6/63 ED :
-
-    rujroot
+/*  1051 : Logic
+    ST : 14.05 2/6/63 ED : 20.00 3/6/63
+    O(2^n)
+    Rujroot
 */
 #include <bits/stdc++.h>
 using namespace std;
-int N,M,x,y,z,XP,XM,YP,YM;
-int Table[1010][1010];
+vector<vector<pair<char,char>>> v[3];
+vector<pair<char,char>> vinput;
+map<char,int> mm;
+map<char,int>::iterator itr;
+int k,m,n,x,po,last;
+char sb,c;
+bool Ans;
+int Mem(int num,int position){
+    if(!Ans)
+        return 0;
+    if(position > mm.size())
+        return 0;
+    bool T,fi = true,se = true;
+    for(int i=0;i<v[0].size();++i){
+        T = false;
+        for(int j=0;j<v[0][i].size();++j){
+            if(v[0][i][j].first == '-'){
+                if(!(num&(1<<mm[v[0][i][j].second]))){
+                    T = true;
+                    break;
+                }
+            }else{
+                if(num&(1<<mm[v[0][i][j].second])){
+                    T = true;
+                    break;
+                }
+            }
+        }
+        if(!T)
+            fi = false;
+    }
+    for(int i=0;i<v[1].size();++i){
+        T = false;
+        for(int j=0;j<v[1][i].size();++j){
+           if(v[1][i][j].first == '-'){
+                if(!(num&(1<<mm[v[1][i][j].second]))){
+                    T = true;
+                    break;
+                }
+            }else{
+                if(num&(1<<mm[v[1][i][j].second])){
+                    T = true;
+                    break;
+                }
+            }
+        }
+        if(!T)
+            se = false;
+    }
+    if(fi and !se){
+        Ans = false;
+    }
+    Mem(num | 1 << position , position + 1 ),Mem( num , position + 1 );
+}
 int main()
 {
-    scanf("%d %d",&N,&M);
-    for(int i=0;i<N;++i){
-        scanf("%d %d",&x,&y);
-        Table[x+1][y+1]++;
-    }
-    /*for(int i=0;i<=11;++i){
-        for(int j=0;j<=11;++j){
-           printf("%d ",Table[i][j]);
-        }printf("\n");
-    }*/
-    for(int i=1;i<1010;++i){
-        for(int j=1;j<1010;++j){
-            Table[i][j] += Table[i-1][j] + Table[i][j-1] - Table[i-1][j-1];
+    scanf("%d",&k);
+    for(int i=0;i<k;++i){
+        scanf("%d %d",&n,&m);
+        po = 0;
+        last = 0;
+        for(int j=0;j<n;++j){
+            scanf("%d",&x);
+            for(int l=0;l<x;++l){
+                scanf(" %c%c",&sb,&c);
+                vinput.push_back({sb,c});
+                itr = mm.find(c);
+                if(itr == mm.end()){
+                    mm[c] = po;
+                    po++;
+                }
+            }
+            v[0].push_back(vinput);
+            vinput.clear();
         }
-    }
-    /*for(int i=0;i<=11;++i){
-        for(int j=0;j<=11;++j){
-           printf("%d ",Table[i][j]);
-        }printf("\n");
-    }*/
-    for(int j=0;j<M;++j){
-        scanf("%d %d %d",&x,&y,&z);
-        x++;
-        y++;
-        XP = x+z;
-        XM = x-z;
-        YP = y+z;
-        YM = y-z;
-        if(XP > 1001)
-            XP = 1001;
-        if(YP > 1001)
-            YP = 1001;
-        if(XM < 1)
-            XM = 1;
-        if(YM < 1)
-            YM = 1;
-       // printf("%d %d %d %d\n",XP,XM,YP,YM);
-       // printf("== > %d %d %d %d\n",Table[XP][YP],Table[XM-1][YP],Table[XP][YM-1],Table[XM-1][YM-1]);
-        printf("%d\n",Table[XP][YP] - Table[XM-1][YP] - Table[XP][YM-1] + Table[XM-1][YM-1]);
+        for(int j=0;j<m;++j){
+            scanf("%d",&x);
+            for(int l=0;l<x;++l){
+                scanf(" %c%c",&sb,&c);
+                vinput.push_back({sb,c});
+                itr = mm.find(c);
+                if(itr == mm.end()){
+                    mm[c] = po;
+                    po++;
+                }
+            }
+            v[1].push_back(vinput);
+            vinput.clear();
+        }
+        for(int j=0;j<mm.size();++j){
+            last = last|1<<j;
+        }
+        Ans = true;
+        Mem(0,0);
+        if(Ans)
+            printf("YES\n");
+        else
+            printf("NO\n");
+        v[0].clear();
+        v[1].clear();
+        mm.clear();
     }
     return 0;
 }
