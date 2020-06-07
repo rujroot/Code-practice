@@ -24,4 +24,3 @@ int main()
 	}
     printf("%d",mem[N]);
 }
-
