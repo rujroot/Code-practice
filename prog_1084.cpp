@@ -1,6 +1,6 @@
 /*  1084 : riddle
     ST : 10.46 11/6/63 ED : 0.45 12/6/63
-    O(n log i)
+    O(n log i) or O(n + log i) //ไม่แน่ใจ
     Rujroot
 */
 #include <bits/stdc++.h>
