@@ -5,7 +5,7 @@
 */
 #include <bits/stdc++.h>
 using namespace std;
-long long int x,y,k,ans=0,zero,Plus = 0,tmp = 5;
+long long int x,y,k,ans=0,zero,Plus = 0;
 long long int Find(long long n,long long i){
     if(n / i == 0){
         tmp = i;
