@@ -20,4 +20,3 @@ int main()
     printf("%d",v[k-1]);
     return 0;
 }
-
