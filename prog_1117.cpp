@@ -31,10 +31,7 @@ int main()
             mem[i][1] = mem[i+1][1]+1;
         }
     }
-   // printf("%lld",mem[0][0]);
-    for(int i=0;i<N;++i){
-        printf("%lld %lld\n",v[i].first,v[i].second);
-    }
+    printf("%lld",mem[0][0]);
     return 0;
 }
 
