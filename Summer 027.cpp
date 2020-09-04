@@ -2,7 +2,6 @@
 using namespace std;
 int main()
 {
-   // printf("%d",);
     int Q,n,L,Climb,Ans;
     scanf("%d",&Q);
     for(int i=0;i<Q;++i){
