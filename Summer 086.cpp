@@ -6,24 +6,6 @@ int n, k, Mem[10010];
 vector<int> v;
 bool visited[10010];
 
-/*int DP(int money, int po, int r){
-    //printf("m = %d r = %d\n",money,r);
-    if(money == 0){
-        //printf("retruen----\n");
-        return 0;
-    }
-
-    if(visited[money])
-        return Mem[money];
-    visited[money] = true;
-
-    for(int i = po; i < k; ++i){
-        if(v[i] <= money)
-            Mem[money] = min(Mem[money] ,DP(money - v[i], i + 1, r + 1) + 1);
-        printf("M[%d] = %d r = %d\n",money,Mem[money],r);
-    }
-}*/
-
 int main()
 {
 
@@ -44,9 +26,6 @@ int main()
 
         }
     }
-    /*for(int i = 0; i <= n; ++i){
-       printf("%d = %d\n",i, Mem[i]);
-    }*/
     printf("%d",Mem[n]);
     return 0;
 }
