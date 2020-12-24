@@ -1,16 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int DP[1010][1010];
-int N, K;
-vector<int> v;
+int DP[1010][1010], v[1010], N, K;
 
 int main(){
     scanf("%d %d", &N, &K);
-    v.push_back(0);
-    for(int i = 0; i < N; ++i){
+
+    for(int i = 1; i <= N; ++i){
         int x; scanf("%d", &x);
-        v.push_back(x);
+        v[i] = x;
     }
 
     for(int i = 0; i <= K; ++i){
@@ -22,7 +20,7 @@ int main(){
     DP[0][0] = 1;
 
     for(int i = 1; i <= K; ++i){
-        for(int j = 1; j < v.size(); ++j){
+        for(int j = 1; j <= N; ++j){
             if(i - v[j] < 0 and j - 1 < 0){
                 DP[i][j] = 0;
             }
