@@ -25,7 +25,7 @@ int main(){
                 DP[i][j] = 0;
             }
             else if(i - v[j] < 0){
-                DP[i][j] += DP[i][j-1] % 1000000007;
+                DP[i][j] += DP[i][j - 1] % 1000000007;
 
             }
             else if(j - 1 < 0){
@@ -37,5 +37,6 @@ int main(){
         }
     }
     printf("%d", DP[K][N]);
-
+    
+    return 0;
 }
