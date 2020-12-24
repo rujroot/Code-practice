@@ -1,3 +1,4 @@
+#define Mod 1000000007
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -25,18 +26,17 @@ int main(){
                 DP[i][j] = 0;
             }
             else if(i - v[j] < 0){
-                DP[i][j] += DP[i][j - 1] % 1000000007;
+                DP[i][j] += DP[i][j-1] % Mod;
 
             }
             else if(j - 1 < 0){
-                DP[i][j] += DP[i - v[j]][j] % 1000000007;
+                DP[i][j] += DP[i - v[j]][j] % Mod;
             }
             else{
-                DP[i][j] += (DP[i][j - 1] + DP[i - v[j]][j]) % 1000000007;
+                DP[i][j] += (DP[i][j - 1] + DP[i - v[j]][j]) % Mod;
             }
         }
     }
     printf("%d", DP[K][N]);
-    
-    return 0;
+
 }
