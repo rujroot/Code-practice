@@ -14,7 +14,7 @@ int Slove(int i, int j){
         return 0;
     if(DP[i][j])
         return DP[i][j];
-    DP[i][j] += (Slove(i,j - 1) + Slove(i - v[j],j)) % 1000000007;
+    DP[i][j] += (Slove(i, j - 1) + Slove(i - v[j], j)) % 1000000007;
 ;
     return DP[i][j]; 
 }
@@ -27,5 +27,5 @@ int main(){
         v.push_back(x);
     }
 
-    printf("%d", Slove(K,N - 1));
+    printf("%d", Slove(K, N - 1));
 }
