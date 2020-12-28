@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int cur[110][10100], prv[110][10100], a[110][110];
-unsigned long long int Ans[10100];
+int a[110][110];
+unsigned long long int  cur[110][10100], prv[110][10100], Ans[10100];
 bool Ask[10100];
 vector<int> v;
 
@@ -26,7 +26,7 @@ int main(){
         for(int k = 1; k < 10100; ++k){
             if(j - 1 <= 0)
                 continue;
-            if(k - a[1][j] <= 0)
+            if(k - a[1][j] < 0)
                 continue;
             cur[j][k] = cur[j - 1][k - a[1][j]];
         }  
@@ -43,7 +43,7 @@ int main(){
 
         for(int j = 1; j <= m; ++j){
             for(int k = 1; k < 10100; ++k){
-                if(k - a[i][j] <= 0)
+                if(k - a[i][j] < 0)
                     continue;
                 else if(j - 1 <= 0)
                     cur[j][k] = prv[j][k - a[i][j]];
@@ -61,7 +61,10 @@ int main(){
     }
 
     for(int i = 0; i < v.size(); ++i){
-        printf("%lu\n", Ans[v[i]]);
+        if(v[i] < 0)
+            printf("0\n");
+        else
+         printf("%lu\n", Ans[v[i]]);
     }
 
 }
