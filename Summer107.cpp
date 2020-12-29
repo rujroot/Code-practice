@@ -2,32 +2,12 @@
 using namespace std;
 
 int DP[70][70][70][70];
-bool visited[70][70][70][70];
 char ss1[70], ss2[70], ss3[70], ss4[70];
 
-
-/*int Solve(int i, int j, int k, int l){
-    if(i == -1 or j == -1 or k == -1 or l == -1)
-        return 0;
-    if(visited[i][j][k][l])
-        return DP[i][j][k][l];
-
-   visited[i][j][k][l] = true;
-    if(s1[i] == s2[j] and s2[j] == s3[k] and s3[k] == s4[l])
-        return DP[i][j][k][l] = 1 + Solve(i - 1, j - 1, k - 1, l - 1);
-    return DP[i][j][k][l] = max(max( Solve(i - 1, j, k, l ), Solve(i , j - 1, k, l )) , max( Solve(i , j, k - 1, l ), Solve(i , j, k, l - 1)));
-}*/
-
 int main(){
-    scanf("%s", ss1 + 1);
-    scanf("%s", ss2 + 1);
-    scanf("%s", ss3 + 1);
-    scanf("%s", ss4 + 1);
+    scanf("%s %s %s %s", ss1 + 1, ss2 + 1, ss3 + 1, ss4 + 1);
     int Si1 = strlen(ss1 + 1), Si2 = strlen(ss2 + 1), Si3 = strlen(ss3 + 1), Si4 = strlen(ss4 + 1);
     
-    //cout << Si1 << Si2 << Si3 << Si4;
-    //printf("%d",Solve(Si1 - 1, Si2 - 1, Si3 - 1, Si4 - 1));
-
     for(int i = 1; i <= Si1; ++i){
         for(int j = 1; j <= Si2; ++j){
             for(int k = 1; k <= Si3; ++k){
@@ -40,6 +20,7 @@ int main(){
             }
         }
     }
+
     printf("%d", DP[Si1][Si2][Si3][Si4]);
     return 0;
 }
