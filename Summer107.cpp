@@ -15,7 +15,7 @@ int main(){
                     if(ss1[i] == ss2[j] and ss2[j] == ss3[k] and ss3[k] == ss4[l])
                         DP[i][j][k][l] = 1 + DP[i - 1][j - 1][k - 1][l - 1];
                     else
-                        DP[i][j][k][l] = max({DP[i - 1][j][k][l], DP[i][j - 1][k][l], DP[i][j][k - 1][l] , DP[i][j][k][l - 1] });
+                        DP[i][j][k][l] = max({ DP[i - 1][j][k][l], DP[i][j - 1][k][l], DP[i][j][k - 1][l] , DP[i][j][k][l - 1] });
                 }
             }
         }
