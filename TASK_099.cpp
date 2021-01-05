@@ -26,7 +26,7 @@ int main(){
                 break;
             for(int j = i; j <= i + l; ++j){
                 for(int d = 1; d <= (j - i); ++d){
-                    DP[i][j] = min({DP[i][j], (F[i] * B[i + d - 1] * B[j] + DP[i][i + d - 1] + DP[i + d][j], F[i] * F[j - d + 1] * B[j] + DP[i][j - d] + DP[j - d + 1][j]});
+                    DP[i][j] = min({DP[i][j], F[i] * B[i + d - 1] * B[j] + DP[i][i + d - 1] + DP[i + d][j], F[i] * F[j - d + 1] * B[j] + DP[i][j - d] + DP[j - d + 1][j]});
                 }
                 /*if((j - i + 1) % 2 == 0){
                     int mid = i + (j - i)/2;
