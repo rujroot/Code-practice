@@ -11,28 +11,16 @@ int main(){
     }
 
     for(int i = 2; i <= n; ++i){
-        for(int j = 0; j <= 9; ++j){
-            if(j == 0)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][8];
-            if(j == 1)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][2] + DP[i - 1][4];
-            if(j == 2)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][1] + DP[i - 1][3] + DP[i - 1][5];
-            if(j == 3)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][2] + DP[i - 1][6];
-            if(j == 4)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][1] + DP[i - 1][5] + DP[i - 1][7];
-            if(j == 5)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][2] + DP[i - 1][4] + DP[i - 1][6] + DP[i - 1][8];
-            if(j == 6)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][3] + DP[i - 1][5] + DP[i - 1][9];
-            if(j == 7)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][4] + DP[i - 1][8];
-            if(j == 8)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][5] + DP[i - 1][7] + DP[i - 1][9] + DP[i - 1][0];
-            if(j == 9)
-                DP[i][j] = DP[i - 1][j] + DP[i - 1][8] + DP[i - 1][6];
-
+                DP[i][0] = DP[i - 1][j] + DP[i - 1][8];
+                DP[i][1] = DP[i - 1][j] + DP[i - 1][2] + DP[i - 1][4];
+                DP[i][2] = DP[i - 1][j] + DP[i - 1][1] + DP[i - 1][3] + DP[i - 1][5];
+                DP[i][3] = DP[i - 1][j] + DP[i - 1][2] + DP[i - 1][6];
+                DP[i][4] = DP[i - 1][j] + DP[i - 1][1] + DP[i - 1][5] + DP[i - 1][7];
+                DP[i][5] = DP[i - 1][j] + DP[i - 1][2] + DP[i - 1][4] + DP[i - 1][6] + DP[i - 1][8];
+                DP[i][6] = DP[i - 1][j] + DP[i - 1][3] + DP[i - 1][5] + DP[i - 1][9];
+                DP[i][7] = DP[i - 1][j] + DP[i - 1][4] + DP[i - 1][8];
+                DP[i][8] = DP[i - 1][j] + DP[i - 1][5] + DP[i - 1][7] + DP[i - 1][9] + DP[i - 1][0];
+                DP[i][9] = DP[i - 1][j] + DP[i - 1][8] + DP[i - 1][6];
         }
     }
 
