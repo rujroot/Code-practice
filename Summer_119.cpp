@@ -7,17 +7,22 @@ bool DP[2021][2021];
 
 bool Solve(){
 
+    bool Top = true;
+    for(int j = 1; j <= L2; ++j){
+        if(S2[j] != '$')
+            Top = false;
+
+        if(Top)
+            DP[0][j] = true;
+        else
+            DP[0][j] = false;
+        
+    }
+
     for(int i = 1; i <= L1; ++i){
-        bool Top = true;
         for(int j = 1; j <= L2; ++j){
-
-            if(S2[j] != '$')
-                Top = false;
-
             if(S1[i] == S2[j] or S2[j] == '-')
                 DP[i][j] = DP[i - 1][j - 1];
-            else if(S2[j] == '$' and Top)
-                DP[i][j] = true;
             else if(S2[j] == '$')
                 DP[i][j] = DP[i - 1][j] or DP[i][j - 1];
             else
@@ -43,12 +48,6 @@ int main(){
             printf("success\n");
         else
             printf("fail\n");
-
-        /*for(int i = 1; i <= L1; ++i){
-             for(int j = 1; j <= L2; ++j){
-                printf("%d ", DP[i][j]);
-             }printf("\n");
-        }*/
 
         for(int i = 0; i <= 2001; ++i){
              for(int j = 0; j <= 2001; ++j){
