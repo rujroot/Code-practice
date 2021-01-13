@@ -13,6 +13,8 @@ bool Solve(){
                 DP[1][1] = true;
             else if(S2[j] == '-' or S1[i] == S2[j])
                 DP[i][j] = DP[i - 1][j - 1];
+            else if(S2[j] != S1[i] and S2[j] != '$')
+                DP[i][j] = DP[i][j - 1] and DP[i - 1][j];
             else
                 DP[i][j] = DP[i - 1][j] or DP[i][j - 1];
         }
