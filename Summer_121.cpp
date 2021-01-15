@@ -13,9 +13,11 @@ int main(){
         DP[i][0] = true;
     }
 
+    DP[0][0] = true;
+
     for(int i = 1; i <= n; ++i){
         for(int j = 1; j <= sum / 2; ++j){
-            DP[i][j] = DP[i - 1][j] or DP[i - 1][j - A[i]];
+            DP[i][j] = DP[i - 1][j] or DP[i - 1][abs(j - A[i])];
         }
     }
 
