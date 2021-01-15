@@ -18,7 +18,9 @@ int main(){
     for(int i = 1; i <= n; ++i){
         for(int j = 1; j <= sum / 2; ++j){
             if(j - A[i] >= 0)
-                DP[i][j] = DP[i - 1][j] or DP[i - 1][j - A[i]];        
+                DP[i][j] = DP[i - 1][j] or DP[i - 1][j - A[i]];
+            else
+                DP[i][j] = DP[i - 1][j];
         }
     }
 
