@@ -19,7 +19,7 @@ int main(){
         }
     }
 
-    for(int i = sum / 2; i >= 0; ++i){
+    for(int i = sum / 2; i >= 0; --i){
         if(DP[n][i]){
             printf("%d",abs(2 * i - sum));
             return 0;
