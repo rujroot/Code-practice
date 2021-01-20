@@ -2,26 +2,22 @@
 using namespace std;
 
 int n, k;
-long long DP[20][100100];
-pair<int, int> p[20];
+pair<int, int> p[11];
+
+long long Solve(int w, int i){
+    if(i > n)
+        return 0;
+    if(w >= p[i].first)
+        return max( Solve(w - p[i].first, i + 1) + p[i].second, Solve(w , i + 1));
+    else
+        return Solve(w, i + 1);
+}
 
 int main(){
     scanf("%d %d", &n, &k);
     for(int i = 1; i <= n; ++i){
-        int x,y; scanf("%d %d", &x , &y);
-        p[i].first = x;
-        p[i].second = y;
+        scanf("%d %d", &p[i].first , &p[i].second);
     }
 
-    for(int i = 1; i <= n; ++i){
-        for(int j = 0; j <= k; ++j){
-            if(j - p[i].first >= 0)
-                DP[i][j] = max(DP[i - 1][j - p[i].first] + p[i].second , DP[i - 1][j]);
-            else
-                DP[i][j] = DP[i - 1][j];
-            
-        }
-    }
-
-    printf("%lld",DP[n][k]);
+    printf("%lld",Solve(k,1));
 }
