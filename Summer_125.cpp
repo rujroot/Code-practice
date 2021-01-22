@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-map<int,int> m, sum, save;
+map<int,int> m, sum;
 vector<int> po;
 
 int main(){
@@ -32,15 +32,6 @@ int main(){
         total = sum[y.first];
     }
 
-    /*for(int i = 0; i < po.size(); ++i){
-        printf("%d ", po[i]);
-    }printf("\n");
-    for(auto y : save){
-        printf("(%d %d) ", y.first, y.second);
-    }printf("\n");
-    for(auto y : m){
-        printf("(%d %d) ", y.first, y.second);
-    }printf("\n");*/
 
     vector<int>::iterator po1, po2;
     for(int i = 1; i <= Q; ++i){
@@ -48,7 +39,6 @@ int main(){
         l--;
         po1 = lower_bound(po.begin(), po.end(), l);
         po2 = lower_bound(po.begin(), po.end(), r);
-        //printf("po1 = %d po2 = %d\n", po1 - po.begin(), po2 - po.begin());
         int sum1 = save[l], sum2 = save[r];
 
 
@@ -64,19 +54,5 @@ int main(){
         }
         printf("%d\n",sum2 - sum1);
     }
-    /*for(auto y : save){
-        printf("(%d %d) ", y.first, y.second);
-    }printf("\n");*/
-    /*for(auto y : po){
-        printf("%d ", y);
-        //printf("(%d %d) ", y.first, y.second);
-    }*/
 
-    /*for(int i = 1; i <= 10; ++i){
-        m[i] += m[i - 1];
-    }*/
-
-    /*for(int i = 1; i <= 10; ++i){
-        printf("%d ", m[i]);
-    }*/
 }
