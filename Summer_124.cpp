@@ -1,4 +1,5 @@
-//ST : 18.31 25/1/2564
+//ST : 18.31 24/1/2564
+//ED : 0.29 25/1/2564
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -23,8 +24,8 @@ int main(){
         for(int i = 1; i <= n; ++i){
             if(i + l > n)
                 break;
-            for(int j = i; j <= i + l; ++j){
-                for(int m = i; m <= j; ++m){
+            int j = i + l;
+            for(int m = i; m <= j; ++m){
                     if(m - 1 < i)
                         DP[i][j] = min(DP[i][j], DP[m + 1][j] + A[m]);
                     if(m + 1 > j)
@@ -33,15 +34,9 @@ int main(){
                         DP[i][j] = min(DP[i][j], max(DP[i][m - 1], DP[m + 1][j]) + A[m]);
 
                     
-                }
             }
         }
     }
 
-   /*for(int i = 0; i <= n; ++i){
-        for(int j = 0; j <= n; ++j){
-            printf("%lld ", DP[i][j]);
-        }printf("\n");
-    }*/
     printf("%lld",DP[1][n]);
 }
