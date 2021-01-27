@@ -19,6 +19,16 @@ double Buy(double A[5][5], double sum, bool Land[5][5], int count, int po1, int 
         A[po1 + 1][po2 + 1] += A[po1][po2] * 0.1;
     }
 
+    double  SaveA[5][5];
+    bool SaveL[5][5];
+
+    for(int i = 1; i <= n; ++i){
+        for(int j = 1; j <= m; ++j){
+            SaveA[i][j] = A[i][j];
+            SaveL[i][j] = Land[i][j];
+        }
+    }
+    
     if(count == n*m){
         Ans = min(Ans, sum);
         return 0;
@@ -28,6 +38,14 @@ double Buy(double A[5][5], double sum, bool Land[5][5], int count, int po1, int 
         for(int j = 1; j <= m; ++j){
             if(!Land[i][j])
                 Buy(A, sum, Land, count, i, j);
+
+            for(int a = 1; a <= n; ++a){
+                for(int b = 1; b <= m; ++b){
+                    A[a][b] = SaveA[a][b];
+                    Land[a][b] = SaveL[a][b];
+                }
+            }
+
         }
     }
 
@@ -36,20 +54,28 @@ double Buy(double A[5][5], double sum, bool Land[5][5], int count, int po1, int 
 int main(){
     scanf("%d %d", &n, &m);
 
-    double Arr[5][5];
+    double Arr[5][5], Save[5][5];
     bool LandP[5][5];
 
     for(int i = 1; i <= n; ++i){
         for(int j = 1; j <= m; ++j){
             scanf("%lf", &Arr[i][j]);
             LandP[i][j] = false;
-
+            Save[i][j] = Arr[i][j];
         }
     }
 
     for(int i = 1; i <= n; ++i){
         for(int j = 1; j <= m; ++j){
             Buy(Arr, 0, LandP, 0, i, j);
+
+            for(int a = 1; a <= n; ++a){
+                for(int b = 1; b <= m; ++b){
+                    Arr[a][b] = Save[a][b];
+                    LandP[a][b] = false;
+                }
+            }
+
         }
     }
     printf("%.2f", Ans);
