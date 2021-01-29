@@ -20,11 +20,15 @@ int main(){
 
         for(int j = 0; j < n; ++j){
             sum += A[i][po[j]];
-            v.push_back({i, po[j]});
             i++;
         }
 
         if(sum > Max){
+            int i = 1;
+            for(int j = 0; j < n; ++j){
+                v.push_back({i, po[j]});
+                i++;
+            }
             Max = sum;
             Ans = v;
         }
@@ -35,7 +39,6 @@ int main(){
     for(int i = 0; i < Ans.size(); ++i){
         printf("%d %d\n", Ans[i].first, Ans[i].second);
     }
-
 
     return 0;
 }
