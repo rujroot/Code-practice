@@ -16,10 +16,9 @@ int main(){
         else
             Q[i] += Q[i - 1] + 1;
 
-        if(!m[Q[i]])
+        if(!m[Q[i]] and Q[i] != 0)
             m[Q[i]] = i;
-        else
-            Ans = max(Ans, i - m[Q[i]]);
+        Ans = max(Ans, i - m[Q[i]]);
             
     }
     printf("%d", Ans);
