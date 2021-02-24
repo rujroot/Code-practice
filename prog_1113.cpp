@@ -3,7 +3,7 @@ using namespace std;
 
 char s[1000010];
 long long Q[1000010];
-map<long long, int> m;
+unordered_map<long long, int> m;
 int Ans;
 
 int main(){
