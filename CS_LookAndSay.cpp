@@ -13,7 +13,7 @@ string lookAndSay(int N) {
         s.push_back('-');
         for(int i = 1; i < s.size(); ++i){
             if(C != s[i]){
-                Copy.push_back(Q + 48);
+                Copy.push_back(Q + '0');
                 Copy.push_back(C);
                 C = s[i];
                 Q = 1;
